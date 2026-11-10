@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#101510" />
+  <title>Emberwild — Oath of the Tarnished</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="game-shell">
+    <canvas id="game" aria-label="3D game world"></canvas>
+    <div class="vignette"></div>
+    <header class="topbar">
+      <div class="brand"><span class="brand-mark">✦</span><span>EMBERWILD</span><small>FIELD JOURNAL · 01</small></div>
+      <button id="sound-toggle" class="icon-button" aria-label="Toggle sound">♫</button>
+    </header>
+
+    <section class="hud-left" aria-label="Player status">
+      <div class="player-label"><span class="crest">✧</span><span><b>THE WAYFARER</b><small>LV. 04 · ASHEN OATH</small></span></div>
+      <div class="meter"><span class="meter-icon">✚</span><div class="meter-track"><i id="health-fill"></i></div><b id="health-text">100</b></div>
+      <div class="meter stamina"><span class="meter-icon">◈</span><div class="meter-track"><i id="stamina-fill"></i></div><b id="stamina-text">100</b></div>
+      <div class="flasks"><span class="flask-icon">◉</span><span>CRIMSON FLASK</span><b id="flask-count">3</b></div>
+    </section>
+
+    <section class="boss-hud" id="boss-hud">
+      <div class="boss-title"><span>FIELD BOSS</span><b>THE CINDERMAW</b><small>Feral guardian of the old grove</small></div>
+      <div class="boss-track"><i id="boss-fill"></i></div>
+      <div class="boss-caption"><span>✦ BEAST OF THE BLIGHT</span><span id="boss-health-label">100%</span></div>
+    </section>
+
+    <div class="quest-card" id="quest-card">
+      <div class="quest-icon">⚔</div><div><small>YOUR OATH</small><b id="quest-text">Hunt the Cindermaw</b><span id="quest-sub">A dark shape stirs beyond the trees.</span></div>
+    </div>
+
+    <div class="toast" id="toast">A presence watches from the mist…</div>
+
+    <div class="center-message" id="center-message">
+      <div class="eyebrow">A WILDERNESS OF ASH &amp; WONDER</div>
+      <h1>EMBER<span>WILD</span></h1>
+      <p>One oath. One beast. No second chances.</p>
+      <button class="start-button" id="start-button">ENTER THE GROVE <span>→</span></button>
+      <small>WASD / ARROWS TO MOVE · SPACE TO DODGE · CLICK OR J TO STRIKE</small>
+    </div>
+
+    <div class="end-screen hidden" id="end-screen">
+      <div class="eyebrow" id="end-eyebrow">OATH FULFILLED</div><h2 id="end-title">THE GROVE REMEMBERS</h2>
+      <p id="end-copy">The Cindermaw returns to the wild. A little light survives.</p>
+      <button class="start-button" id="restart-button">RISE AGAIN <span>↻</span></button>
+    </div>
+
+    <div class="touch-controls" id="touch-controls">
+      <div class="joystick" id="joystick"><div class="joy-ring"></div><div class="joy-knob" id="joy-knob"></div></div>
+      <div class="action-controls">
+        <button class="touch-action heal-action" id="heal-btn"><span>✚</span><small>FLASK</small></button>
+        <button class="touch-action dodge-action" id="dodge-btn"><span>➤</span><small>DODGE</small></button>
+        <button class="touch-action attack-action" id="attack-btn"><span>⚔</span><small>STRIKE</small></button>
+      </div>
+    </div>
+
+    <div class="desktop-hints"><span><kbd>WASD</kbd> MOVE</span><span><kbd>SPACE</kbd> DODGE</span><span><kbd>J</kbd> STRIKE</span><span><kbd>F</kbd> FLASK</span></div>
+    <div class="scene-label"><span class="scene-dot"></span> THE WEEPING GROVE <span>·</span> LIMGRAVE FRONTIER</div>
+    <div class="lock-indicator" id="lock-indicator">◉ TARGET LOCKED</div>
+  </main>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
